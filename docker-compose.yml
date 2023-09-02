@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: uni-project
+    env_file:
+      - .env
+    ports:
+      - "3001:${APP_PORT}"
+    volumes:
+      - "./prisma/database.db:/app/prisma/database.db"
+    restart: always
